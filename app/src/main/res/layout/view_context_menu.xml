@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <Button
+        android:id="@+id/btn_report"
+        style="@style/ContextMenuButton"
+        android:text="REPORT"
+        android:textColor="@color/btn_context_menu_text_red"/>
+
+
+
+    <Button
+        android:id="@+id/btn_share"
+        style="@style/ContextMenuButton"
+        android:text="SHARE PHOTO"
+        android:textColor="@color/btn_context_menu_text_black"/>
+
+    <Button
+        android:id="@+id/btnCopyShareUrl"
+        style="@style/ContextMenuButton"
+        android:text="COPY SHARE URL"
+        android:textColor="@color/btn_context_menu_text_black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#eeeeee" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/ContextMenuButton"
+        android:text="CANCEL"
+        android:textColor="@color/btn_context_menu_text_black"/>
+</merge>
