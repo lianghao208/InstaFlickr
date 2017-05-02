@@ -1,3 +1,3 @@
 # InstaFlickr
 * Finished Feed
-![ok](https://im2.ezgif.com/tmp/ezgif-2-11755b3edf.gif)
+![ok](https://github.com/lianghao208/InstaFlickr/blob/master/app/src/main/res/gif/ezgif.com-gif-maker.gif)
