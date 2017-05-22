@@ -1,12 +1,10 @@
-package com.example.administrator.instagramdemo;
+package com.example.administrator.instagramdemo.Activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,17 +17,17 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.administrator.instagramdemo.Adapter.CommentsAdapter;
+import com.example.administrator.instagramdemo.R;
+import com.example.administrator.instagramdemo.Utils;
 import com.example.administrator.instagramdemo.View.SendCommentButton;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class CommentsActivity extends AppCompatActivity implements SendCommentButton.OnSendClickListener{
+public class CommentsActivity extends BaseActivity  implements SendCommentButton.OnSendClickListener{
 
     public static final String ARG_DRAWING_START_LOCATION = "arg_drawing_start_location";
 
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
+
     @InjectView(R.id.contentRoot)
     LinearLayout contentRoot;
     @InjectView(R.id.rvComment)
@@ -53,7 +51,7 @@ public class CommentsActivity extends AppCompatActivity implements SendCommentBu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
-        ButterKnife.inject(this);
+        //ButterKnife.inject(this);
         drawingStartLocation = getIntent().getIntExtra(ARG_DRAWING_START_LOCATION, 0);//得到上一个activity的点击item的位置
         if (savedInstanceState == null) {
             pendingIntroAnimation = true;
@@ -66,7 +64,6 @@ public class CommentsActivity extends AppCompatActivity implements SendCommentBu
                 }
             });
         }
-        setToolbar();
         setComments();
         setupSendCommentButton();
     }
@@ -144,10 +141,6 @@ public class CommentsActivity extends AppCompatActivity implements SendCommentBu
     }
 
 
-    private void setToolbar() {
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_white);
-    }
 
     @Override
     public void onSendClickListener(View v) {

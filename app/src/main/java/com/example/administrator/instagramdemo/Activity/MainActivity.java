@@ -1,4 +1,4 @@
-package com.example.administrator.instagramdemo;
+package com.example.administrator.instagramdemo.Activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,8 +20,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.administrator.instagramdemo.Adapter.FeedAdapter;
+import com.example.administrator.instagramdemo.FlickrFetchr;
 import com.example.administrator.instagramdemo.Item.GalleryItem;
 import com.example.administrator.instagramdemo.Manager.FeedContextMenuManager;
+import com.example.administrator.instagramdemo.R;
+import com.example.administrator.instagramdemo.Utils;
 import com.example.administrator.instagramdemo.View.FeedContextMenu;
 
 import java.util.ArrayList;
@@ -207,6 +210,15 @@ public class MainActivity extends AppCompatActivity implements FeedAdapter.OnFee
     @Override
     public void onFeedCenterClick(View v, int position) {
 
+    }
+
+    @Override
+    public void onUserFileClick(View v, int position) {
+        int[] startingLocation = new int[2];
+        v.getLocationOnScreen(startingLocation);
+        startingLocation[0] += v.getWidth() / 2;
+        UserProfileActivity.startUserProfileFromLocation(startingLocation, this);
+        overridePendingTransition(0, 0);
     }
 
     @Override

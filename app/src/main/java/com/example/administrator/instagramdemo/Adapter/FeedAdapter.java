@@ -65,6 +65,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.CellFeedViewHo
     @Override
     public FeedAdapter.CellFeedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(mContext).inflate(R.layout.item_feed, parent, false);
+        final CellFeedViewHolder cellFeedViewHolder = new CellFeedViewHolder(view);
+        //cellFeedViewHolder.btnComments.setOnClickListener(this);
         return new CellFeedViewHolder(view);
     }
 
@@ -119,6 +121,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.CellFeedViewHo
         holder.ivFeedBottom.setOnClickListener(this);//设置评论图片按钮监听器
         holder.ivFeedBottom.setTag(position);
 
+        holder.tvOwnerName.setOnClickListener(this);
+        holder.tvOwnerName.setTag(position);
         //holder.ivFeedCenter.setOnClickListener(this);//设置图片按钮监听器（无效）
         //holder.ivFeedCenter.setTag(holder);
         if (likeAnimations.containsKey(holder)) {
@@ -154,6 +158,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.CellFeedViewHo
                 case R.id.ivFeedCenter:
                     updateLikeView(v);
                     break;
+                case R.id.tvOwnerName:
+                    onFeedItemClickListener.onUserFileClick(v, (Integer) v.getTag());
+                    break;
                 default: Toast.makeText(mContext, "no", Toast.LENGTH_SHORT).show();
 
             }
@@ -161,6 +168,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.CellFeedViewHo
 
 
     }
+
+
 
     private void updateLikeView(View v) {
 
@@ -302,6 +311,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.CellFeedViewHo
         void onLikeClick(View v, int position);
         void onMoreClick(View v, int position);
         void onFeedCenterClick(View v, int position);
+        void onUserFileClick(View v,int position);
     }
 
 }
